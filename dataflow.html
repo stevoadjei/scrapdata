@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .diagram {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .flow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .step {
+            background: #f8f9fa;
+            border: 2px solid #0366d6;
+            border-radius: 8px;
+            padding: 15px;
+            width: 150px;
+            text-align: center;
+            margin: 10px;
+            position: relative;
+        }
+        .arrow {
+            flex-grow: 1;
+            height: 2px;
+            background: #0366d6;
+            margin: 0 10px;
+            position: relative;
+            min-width: 50px;
+        }
+        .arrow::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid #0366d6;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        .title {
+            text-align: center;
+            color: #24292e;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 600px) {
+            .flow-container {
+                flex-direction: column;
+            }
+            .arrow {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram">
+        <h2 class="title">Web Scraping Data Flow</h2>
+        <div class="flow-container">
+            <div class="step">
+                HTTP Request<br>
+                <small>(requests.get())</small>
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                HTML Parsing<br>
+                <small>(BeautifulSoup)</small>
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                Data Extraction<br>
+                <small>(soup.find())</small>
+            </div>
+            <div class="arrow"></div>
+            <div class="step">
+                Data Processing<br>
+                <small>(Python)</small>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
